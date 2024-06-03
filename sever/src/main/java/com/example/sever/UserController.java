@@ -4,16 +4,14 @@ import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestBody;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.Date;
 import java.util.HashMap;
 import java.util.Map;
 
 @RestController
+@CrossOrigin("http://localhost:8080/")
 @RequestMapping("api/v1")
 public class UserController {
     String user = "piranavan";
@@ -40,7 +38,7 @@ public class UserController {
             Map<String, String> responseBody = new HashMap<>();
             responseBody.put("token", token);
             return ResponseEntity.status(HttpStatus.OK).body(responseBody );
-            
+
         }
         else
 
